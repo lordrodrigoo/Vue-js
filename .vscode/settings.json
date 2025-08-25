@@ -1,0 +1,27 @@
+{
+  // Usa o Volar em vez do Vetur
+  "vue.features.codeActions.enable": true,
+  "vue.features.diagnostics.enable": true,
+  "vue.features.documentHighlight.enable": true,
+  "vue.features.documentSymbol.enable": true,
+  "vue.features.foldingRange.enable": true,
+  "vue.features.formatting.enable": true,
+  "vue.features.references.enable": true,
+  "vue.features.rename.enable": true,
+  "vue.features.selectionRange.enable": true,
+  "vue.features.semanticTokens.enable": true,
+  "vue.features.signatureHelp.enable": true,
+  "vue.features.completion.enable": true,
+
+  // JavaScript/TypeScript
+  "javascript.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+
+  // Prettier (se você tiver instalado)
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Ativa o Live Server como padrão
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.root": "/"
+}
