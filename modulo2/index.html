@@ -49,6 +49,19 @@
 
     <script>
         Vue.createApp({
+            methods: {
+                salvarNovoItem() {
+                    let novoItem ={
+                        id: new Date().getTime(),
+                        texto: this.textoNovoItem,
+                        importante: this.novoItemImportante,
+                        feito: false,
+                    };
+                    this.lista.push(novoItem);
+                    this.textoNovoItem = "";
+                    this.novoItemImportante = false;
+                },
+            },
             data() {
                 return {
                     textoNovoItem: "",
