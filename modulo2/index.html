@@ -13,6 +13,7 @@
     <div id="app">
         <div id="wrapper">
             <h1>TODO.LIST</h1>
+
             <div id="form-wrapper">
                 <div id="o-form">
                     <input type="text" id="text-novo-item">
@@ -28,25 +29,14 @@
             </div>
 
             <div id="list-wrapper">
-                <div class="item">
-                    <p class="texto-item">Item a Fazer</p>
-                </div>
-                <div class="item">
-                    <p class="texto-item">Item a Fazer</p>
-                </div>
-                <div class="item feito">
-                    <p class="texto-item">Item Feito</p>
-                </div>
-                <div class="item importante">
-                    <p class="texto-item">Item Importante</p>
-                </div>
-                <div class="item feito">
-                    <p class="texto-item">Item Feito</p>
-                </div>
-                <div class="item importante">
-                    <p class="texto-item">Item Importante</p>
-                </div>
+                <!-- Para cada item da lista, é preciso ter uma div (como a div apresentada na imagem a seguir).
+                Essa div terá obrigatoriamente a classe item.
+                Dentro da div com classe item, haverá um parágrafo (tag p).
+                Dentro desse parágrafo, o texto do item será “impresso”. -->
 
+                <div class="item" v-for="item in lista">
+                    <p class="texto-item">Item a Fazer</p>
+                </div>
                 
             </div>
         </div>
@@ -57,6 +47,24 @@
         Vue.createApp({
             data() {
                 return {
+                    lista: [
+                    {
+                        texto: "Item importante",
+                        importante: true,
+                        feito: false,
+                    },
+                    {
+                        texto: "Item importante",
+                        importante: true,
+                        feito: false,
+                    },
+                    {
+                        texto: "Item importante",
+                        importante: true,
+                        feito: false,
+                    },
+                    
+                  ]  
                 }
             },
         }).mount("#app")
