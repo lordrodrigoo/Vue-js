@@ -30,16 +30,31 @@
                     <div id="dados-cartao">
 
                         <span class="label-cartao">Nome:</span>
-                        <span class="dado-cartao">(O Nome deverá refletir aqui)</span>
+                        <span class="dado-cartao">{{ nome }}</span>
 
                         <span class="label-cartao">Matrícula:</span>
-                        <span class="dado-cartao" v-text="matricula">(A Matrícula deverá refletir aqui)</span>
+                        <span class="dado-cartao" v-text="matricula">{{ matricula }}</span>
                     </div>
                     <div id="foto">Foto</div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        Vue.createApp ({
+            data(){
+                return {
+                    nome: "",
+                    matricula: "",
+                }
+            }
+        }).mount("#central")
+
+        
+    </script>
 
 </body>
 
