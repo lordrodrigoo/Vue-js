@@ -16,7 +16,7 @@
 
             <div id="form-wrapper">
                 <div id="o-form">
-                    <input type="text" id="text-novo-item" v-model="textoNovoItem">
+                    <input type="text" id="text-novo-item" v-model="textoNovoItem" @keyup.enter="salvarNovoItem">
                     <div>
                         <input type="checkbox" id="is-importante" v-model="novoItemImportante">
                         <label for="is-importante"> Importante</label><br>
