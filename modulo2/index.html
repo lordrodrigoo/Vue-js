@@ -16,16 +16,22 @@
 
             <div id="form-wrapper">
                 <div id="o-form">
-                    <input type="text" id="text-novo-item" v-model="textoNovoItem" @keyup.enter="salvarNovoItem">
+                    <input 
+                        type="text"
+                        id="text-novo-item"
+                        v-model="textoNovoItem" 
+                        @keyup.enter="salvarNovoItem"
+                        maxlength="25">
                     <div>
                         <input type="checkbox" id="is-importante" v-model="novoItemImportante">
                         <label for="is-importante"> Importante</label><br>
                     </div>
-                    <button @click="salvarNovoItem">
+                    <button @click="salvarNovoItem"
+                    v-if="textoNovoItem.length > 0 ">
                         Salvar
                     </button>
                 </div>
-                <p id="contagem"></p>
+                <p id="contagem">{{ qtdDigitada }}/25</p>
             </div>
 
             <div id="list-wrapper">
@@ -51,41 +57,31 @@
         Vue.createApp({
             methods: {
                 salvarNovoItem() {
-                    let novoItem ={
-                        id: new Date().getTime(),
-                        texto: this.textoNovoItem,
-                        importante: this.novoItemImportante,
-                        feito: false,
-                    };
-                    this.lista.push(novoItem);
-                    this.textoNovoItem = "";
-                    this.novoItemImportante = false;
+                    if(this.textoNovoItem.length > 0){
+                        let novoItem ={
+                            id: new Date().getTime(),
+                            texto: this.textoNovoItem,
+                            importante: this.novoItemImportante,
+                            feito: false,
+                        }
+                        this.lista.push(novoItem);
+                        this.textoNovoItem = "";
+                        this.novoItemImportante = false;
+                    }
                 },
             },
             data() {
                 return {
                     textoNovoItem: "",
                     novoItemImportante: false,
-                    lista: [
-                    {
-                        texto: "Item importante",
-                        importante: true,
-                        feito: false,
-                    },
-                    {
-                        texto: "Item feito",
-                        importante: false,
-                        feito: true,
-                    },
-                    {
-                        texto: "Item a fazer",
-                        importante: false,
-                        feito: false,
-                    },
-                    
-                  ]  
+                    lista: [],  
                 }
             },
+            computer: {
+                qtdDigitada() {
+                    return this.textoNovoItem.length
+                }
+            }
         }).mount("#app")
     </script>
 
