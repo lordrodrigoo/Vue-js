@@ -34,8 +34,10 @@
                 Dentro da div com classe item, haverá um parágrafo (tag p).
                 Dentro desse parágrafo, o texto do item será “impresso”. -->
 
-                <div class="item" v-for="item in lista">
-                    <p class="texto-item">Item a Fazer</p>
+                <div class="item"
+                    v-bind:class="{importante : item.importante, feito: item.feito}" 
+                    v-for="item in lista">
+                    <p class="texto-item" v-text="item.texto"></p>
                 </div>
                 
             </div>
@@ -54,13 +56,13 @@
                         feito: false,
                     },
                     {
-                        texto: "Item importante",
-                        importante: true,
-                        feito: false,
+                        texto: "Item feito",
+                        importante: false,
+                        feito: true,
                     },
                     {
-                        texto: "Item importante",
-                        importante: true,
+                        texto: "Item a fazer",
+                        importante: false,
                         feito: false,
                     },
                     
